@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import frontend from "../../assets/Front-End-Certificated.jpg";
+import frontend from "../../assets/FrontEndcertificated.jpg";
 import java from "../../assets/java.png";
 import py from "../../assets/py.png";
 import css from "../../assets/css.png";
