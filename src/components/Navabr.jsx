@@ -171,7 +171,7 @@ const Navbar = () => {
         ].map((item, index) => (
           <motion.li
             key={index}
-            className="cursor-pointer hover:text-blue-500 dark:hover:text-yellow-400 transition-colors duration-300"
+            className="cursor-pointer text-gray-800 hover:text-blue-500 dark:hover:text-yellow-400 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 200 }}
           >

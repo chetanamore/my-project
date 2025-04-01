@@ -170,7 +170,7 @@ const Contact = () => {
       </motion.form>
 
       {/* Messages Display */}
-      <div className="w-full max-w-md mt-6">
+      {/* <div className="w-full max-w-md mt-6">
         <h2 className="text-2xl font-semibold mb-4 bg-black bg-opacity-50 px-4 py-2 rounded-md">
           Recent Messages
         </h2>
@@ -199,7 +199,7 @@ const Contact = () => {
             <p className="text-gray-300 dark:text-gray-500">No messages yet</p>
           )}
         </motion.div>
-      </div>
+      </div> */}
     </div>
   );
 };
