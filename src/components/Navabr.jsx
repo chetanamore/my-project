@@ -74,6 +74,7 @@ import { MdOutlineWbSunny } from "react-icons/md";
 import { GoMoon } from "react-icons/go";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") === "dark" ? "dark" : "light"
   );
@@ -91,7 +92,9 @@ const Navbar = () => {
 
   return (
     // <motion.nav
-    //   className="fixed top-0 left-0 w-full flex justify-between items-center px-8 py-4 bg-white dark:bg-gray-900 shadow-md z-50"
+    //   className="fixed w-full sm:w-[80%] left-10 sm:left-40 top-10 flex gap-5 sm:gap-24 justify-center items-center py-2 sm:py-5
+    //           bg-white dark:bg-opacity-100
+    //          shadow-md z-50 sm:px-96 border rounded-full"
     //   initial={{ y: -100 }}
     //   animate={{ y: 0 }}
     //   transition={{ type: "spring", stiffness: 100 }}
@@ -101,23 +104,26 @@ const Navbar = () => {
     //     className="text-2xl font-bold text-gray-900 dark:text-white"
     //     whileHover={{ scale: 1.1 }}
     //   >
-    //     Chetana.dev 🚀
+    //     Chetana.dev
     //   </motion.div>
 
     //   {/* Nav Links */}
-    //   <ul className="hidden md:flex gap-8 text-gray-700 dark:text-gray-300 text-lg">
-    //     {["Home", "About", "Projects", "Experience", "Contact"].map(
-    //       (item, index) => (
-    //         <motion.li
-    //           key={index}
-    //           className="cursor-pointer hover:text-blue-500 dark:hover:text-yellow-400 transition-colors duration-300"
-    //           whileHover={{ scale: 1.1 }}
-    //           transition={{ type: "spring", stiffness: 200 }}
-    //         >
-    //           {item}
-    //         </motion.li>
-    //       )
-    //     )}
+    //   <ul className="hidden md:flex gap-8 text-black text-lg">
+    //     {[
+    //       { name: "Home", path: "/" },
+    //       { name: "Projects", path: "/project" },
+    //       { name: "Experience", path: "/experience" },
+    //       { name: "Contact", path: "/contact" },
+    //     ].map((item, index) => (
+    //       <motion.li
+    //         key={index}
+    //         className="cursor-pointer hover:text-blue-500 dark:hover:text-yellow-400 transition-colors duration-300"
+    //         whileHover={{ scale: 1.1 }}
+    //         transition={{ type: "spring", stiffness: 200 }}
+    //       >
+    //         <Link to={item.path}>{item.name}</Link>
+    //       </motion.li>
+    //     ))}
     //   </ul>
 
     //   {/* Theme Toggle Button */}
@@ -125,7 +131,11 @@ const Navbar = () => {
     //     onClick={toggleTheme}
     //     className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
     //   >
-    //     {theme === "light" ? <GoMoon size={24} /> : <MdOutlineWbSunny size={24} />}
+    //     {theme === "light" ? (
+    //       <GoMoon size={24} />
+    //     ) : (
+    //       <MdOutlineWbSunny size={24} />
+    //     )}
     //   </button>
 
     //   {/* Mobile Menu Button */}
@@ -136,9 +146,9 @@ const Navbar = () => {
     //     ☰
     //   </motion.div>
     // </motion.nav>
-
     <motion.nav
-      className="fixed top-0 left-0 w-full flex justify-between items-center px-8 py-4 bg-white dark:bg-gray-900 shadow-md z-50"
+      className="fixed w-full sm:w-[80%] left-5 sm:left-40 top-5 flex justify-between items-center py-3 px-5 sm:px-20 
+      bg-white dark:bg-gray-900 shadow-md z-50 border rounded-full"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
@@ -148,15 +158,14 @@ const Navbar = () => {
         className="text-2xl font-bold text-gray-900 dark:text-white"
         whileHover={{ scale: 1.1 }}
       >
-        Chetana.dev 🚀
+        Chetana.dev
       </motion.div>
 
-      {/* Nav Links */}
-      <ul className="hidden md:flex gap-8 text-gray-700 dark:text-gray-300 text-lg">
+      {/* Desktop Nav Links */}
+      <ul className="hidden md:flex gap-8 text-lg">
         {[
           { name: "Home", path: "/" },
-          { name: "About", path: "/about" },
-          { name: "Projects", path: "/projects" },
+          { name: "Projects", path: "/project" },
           { name: "Experience", path: "/experience" },
           { name: "Contact", path: "/contact" },
         ].map((item, index) => (
@@ -187,9 +196,37 @@ const Navbar = () => {
       <motion.div
         className="md:hidden cursor-pointer text-gray-700 dark:text-gray-300"
         whileTap={{ scale: 0.9 }}
+        onClick={() => setIsOpen(!isOpen)}
       >
         ☰
       </motion.div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3 }}
+          className="absolute top-16 right-5 bg-white dark:bg-gray-900 shadow-lg rounded-lg p-5 w-40 flex flex-col gap-3 md:hidden"
+        >
+          {[
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/project" },
+            { name: "Experience", path: "/experience" },
+            { name: "Contact", path: "/contact" },
+          ].map((item, index) => (
+            <Link
+              key={index}
+              to={item.path}
+              className="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-yellow-400"
+              onClick={() => setIsOpen(false)}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

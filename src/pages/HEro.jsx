@@ -1,6 +1,6 @@
 import { useRef, useContext } from "react";
 // import VariableProximity from "./VariableProximity";
-import sejal from "../assets/photo.jpeg";
+import sejal from "../assets/avtar.png";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { MdDownload } from "react-icons/md";
 import chetana from "../assets/chetu.jpg";
@@ -9,55 +9,53 @@ import Experience from "./Experience";
 import { motion } from "framer-motion";
 import Projects from "./Projects";
 import { useTheme } from "../context/ThemeProvider";
+import Certifications from "./ExperienceTabs/Certificates";
 
 const HEro = () => {
   const containerRef = useRef(null);
   const { theme } = useTheme();
 
   return (
-    <div className="flex flex-col gap-20 justify-between">
-      <div className="flex flex-row justify-between items-center">
-        <div className="flex text-start w-full flex-col gap-5">
-          <h1 className="text-4xl font-semibold">Hello..</h1>
-          <div className="flex flex-row gap-5 items-center">
-            <div className="text-black bg-black w-[50px] h-[3px]"></div>
-            <p className="text-2xl">I am Chetana More</p>
+    <div className="flex flex-col gap-20 py-28">
+      <div className="flex flex-col justify-between items-center">
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-10">
+            <h1 className="text-center font-[Poppins] text-[32px] sm:text-[71px] not-italic font-normal leading-[23px] tracking-[-1.42px]">
+              Hello..
+            </h1>
+            <h3 className="text-center font-[Poppins] text-[32px] sm:text-[71px] not-italic font-normal leading-[23px] tracking-[-1.42px]">
+              I am Chetana More
+            </h3>
+            <h2 className="text-center font-[Poppins] text-[32px] sm:text-[71px] not-italic font-normal leading-[23px] tracking-[-1.42px]">
+              Full Stack Developer
+            </h2>
           </div>
-          <h2 className="text-[48px]">Full Stack Developer</h2>
-          <a target="_blank" href="https://drive.google.com/file/d/1rzk4cknVtGRGaj0qc-dMgTUWuFseKb5S/view" download="Chetana_Resume.pdf">
-            <button
-              type="button"
-              className="flex justify-start w-[40%] gap-2 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-gray-50 before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
+          {/* <div className="flex flex-row gap-5 items-center">
+            <div className="text-black bg-black w-[50px] h-[3px]"></div> 
+          </div> */}
+          <div className="w-[300px] sm:w-[900px]">
+            <h1 className="p-2 text-lgsm:text-xl text-center font-normal">
+              I am Chetana Ravindra More, a skilled Full Stack Developer with
+              expertise in MERN Stack and a passion for building scalable,
+              high-performance web applications. With a strong foundation in
+              HTML, CSS, JavaScript, React.js, Angular.js, Node.js, Express.js,
+              and MongoDB, I have hands-on experience in both frontend and
+              backend development.
+            </h1>
+          </div>
+          <div className="flex flex-col justify-center items-center">
+            <a
+              className="btn"
+              target="_blank"
+              href="https://drive.google.com/file/d/1rzk4cknVtGRGaj0qc-dMgTUWuFseKb5S/view"
+              download="Chetana_Resume.pdf"
             >
-              Download CV
-              <svg
-                className="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
-                viewBox="0 0 16 19"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                  className="fill-gray-800 group-hover:fill-gray-800"
-                ></path>
-              </svg>
-            </button>
-          </a>
-        </div>
-        <div className="w-[100%] h-[50%]">
-          <img src={sejal} alt="" srcset="" className="object-contain " />
-        </div>
-        <div className="w-full flex flex-col justify-start items-start gap-5">
-          <h1 className="text-xl font-normal text-start">
-            I am Chetana Ravindra More, a skilled Full Stack Developer with
-            expertise in MERN Stack and a passion for building scalable,
-            high-performance web applications. With a strong foundation in HTML,
-            CSS, JavaScript, React.js, Angular.js, Node.js, Express.js, and
-            MongoDB, I have hands-on experience in both frontend and backend
-            development.
-          </h1>
-          <button className=" flex flex-row gap-2 justify-start text-4xl">
-            Lets Talk <FaArrowRightLong />
-          </button>
+              <button>Lets Talk</button>
+            </a>
+          </div>
+          <div className="sm:w-[100%] sm:h-[50%] flex flex-col items-center justify-center">
+            <img src={sejal} alt="" srcset="" className="w-[304px] h-[304px] " />
+          </div>
         </div>
       </div>
       {/* <motion.div
@@ -162,23 +160,31 @@ const HEro = () => {
       </motion.div> */}
 
       <div className="flex flex-col gap-20 justify-between">
-        <div className="flex flex-col gap-1 justify-between items-center">
+        {/* <div className="flex flex-col gap-1 justify-between items-center">
           <h1 className="text-5xl">Who am I?</h1>
           <div className="w-[220px] h-[2px] text-black bg-black"></div>
-        </div>
-        <div className="flex flex-row items-start gap-20 text-start">
+        </div> */}
+        <div className="flex flex-col sm:flex-row items-center gap-20 text-start">
           <div className="flex flex-col justify-center items-center gap-5">
-            <img src={chetana} alt="" srcset="" className="w-[70%]" />
+            <img
+              src={chetana}
+              alt=""
+              srcset=""
+              className="w-[50%] rounded-lg"
+            />
           </div>
 
-          <div className="w-full flex flex-col justify-center text-start items-start gap-10">
+          <div className="w-full flex flex-col justify-center text-start items-start gap-10 p-5">
             <div className="relative flex flex-col gap-5">
               <div>
-                <h2 className="text-xl font-semibold">About Me</h2>
+                <h2 className="text-4xl font-bold">
+                  What I<span className="font-normal italic"> Bring</span> to
+                  the table
+                </h2>
 
-                <h1 className="text-3xl font-bold mt-2 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent transition-transform duration-500 ease-in-out hover:skew-x-6">
+                {/* <h1 className="text-3xl font-bold mt-2 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent transition-transform duration-500 ease-in-out hover:skew-x-6">
                   Chetana More Details
-                </h1>
+                </h1> */}
 
                 <p className="mt-4 transition-all duration-500 ease-in-out hover:tracking-wide hover:text-blue-500">
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -189,57 +195,67 @@ const HEro = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col gap-5">
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div className="relative p-4 border-l-4 border-blue-500 overflow-hidden group">
-                  <div className="absolute inset-0 bg-blue-500 scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                  <div className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
-                    <h1 className="text-lg font-semibold">Name</h1>
-                    <p className="text-base">Chetana More</p>
+            <div>
+              <div className="flex flex-col gap-5">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
+                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
+                    <div className="relative z-10 light:text-blackk group-hover:text-white transition-colors duration-500">
+                      <h1 className="text-lg font-semibold">
+                        Passion for Learining
+                      </h1>
+                      <p className="text-base">
+                        Building, innovating, and learning every day.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
+                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
+                    <div className="relative z-10 light:text-black group-hover:text-white transition-colors duration-500">
+                      <h1 className="text-lg font-semibold">
+                        Collabration & Teamwork
+                      </h1>
+                      <p className="text-base">
+                        Believing in teamwork to turn ideas into reality.
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <div className="relative p-4 border-l-4 border-blue-500 overflow-hidden group">
-                  <div className="absolute inset-0 bg-blue-500 scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                  <div className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
-                    <h1 className="text-lg font-semibold">Email</h1>
-                    <p className="text-base">chetnamore791@gmail.com</p>
-                  </div>
-                </div>
-              </div>
 
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <div className="relative p-4 border-l-4 border-blue-500 overflow-hidden group">
-                  <div className="absolute inset-0 bg-blue-500 scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                  <div className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
-                    <h1 className="text-lg font-semibold">Address</h1>
-                    <p className="text-base">Kharadi, Pune</p>
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
+                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
+                    <div className="relative z-10 light:text-black group-hover:text-white transition-colors duration-500">
+                      <h1 className="text-lg font-semibold">
+                        Problem Solving Mindset
+                      </h1>
+                      <p className="text-base">
+                        Every problem is a puzzle waiting to be solved.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="relative p-4 border-l-4 border-blue-500 overflow-hidden group">
-                  <div className="absolute inset-0 bg-blue-500 scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                  <div className="relative z-10 text-black group-hover:text-white transition-colors duration-500">
-                    <h1 className="text-lg font-semibold">Phone No</h1>
-                    <p className="text-base">7796768390</p>
+                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
+                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
+                    <div className="relative z-10 light:text-black group-hover:text-white transition-colors duration-500">
+                      <h1 className="text-lg font-semibold">
+                        Hands on Expereince
+                      </h1>
+                      <p className="text-base">
+                        Strong hands-on expertise in full-stack development
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <button
-              type="submit"
-              class="flex justify-between w-[28%] gap-2 items-center shadow-xl text-lg bg-gray-50 backdrop-blur-md lg:font-semibold isolation-auto border-[#DDD] before:absolute before:w-full before:transition-all before:duration-700 before:hover:w-full before:-left-full before:hover:left-0 before:rounded-full before:bg-emerald-500 hover:text-gray-50 before:-z-10 before:aspect-square before:hover:scale-150 before:hover:duration-700 relative z-10 px-4 py-2 overflow-hidden border-2 rounded-full group"
-            >
-              Download CV
-              <svg
-                class="w-8 h-8 justify-end group-hover:rotate-90 group-hover:bg-gray-50 text-gray-50 ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
-                viewBox="0 0 16 19"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 18C7 18.5523 7.44772 19 8 19C8.55228 19 9 18.5523 9 18H7ZM8.70711 0.292893C8.31658 -0.0976311 7.68342 -0.0976311 7.29289 0.292893L0.928932 6.65685C0.538408 7.04738 0.538408 7.68054 0.928932 8.07107C1.31946 8.46159 1.95262 8.46159 2.34315 8.07107L8 2.41421L13.6569 8.07107C14.0474 8.46159 14.6805 8.46159 15.0711 8.07107C15.4616 7.68054 15.4616 7.04738 15.0711 6.65685L8.70711 0.292893ZM9 18L9 1H7L7 18H9Z"
-                  class="fill-gray-800 group-hover:fill-gray-800"
-                ></path>
-              </svg>
-            </button>
+            <div>
+              <div className="flex justify-center items-center gap-5">
+                <button className="flex flex-row gap-4 items-center justify-center text-lg">
+                  Browse my work 
+                </button>
+                <FaArrowRightLong />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -247,6 +263,10 @@ const HEro = () => {
       {/* <div>
         <Experience />
       </div> */}
+
+      <div>
+        <Certifications/>
+      </div>
 
       <div>
         <WhatIDo />

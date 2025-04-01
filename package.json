@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "framer-motion": "^12.5.0",
+    "axios": "^1.8.4",
+    "framer-motion": "^12.6.0",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.3",
     "react": "^19.0.0",
@@ -32,5 +33,6 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "vite": "^6.2.0"
-  }
+  },
+  "packageManager": "yarn@4.5.3+sha512.3003a14012e2987072d244c720506549c1aab73ee728208f1b2580a9fd67b92d61ba6b08fe93f6dce68fd771e3af1e59a0afa28dd242dd0940d73b95fedd4e90"
 }

@@ -12,7 +12,7 @@ const Experience = () => {
     { id: "skills", label: "Skills" },
     { id: "education", label: "Education" },
     { id: "internship", label: "Internship Experience" },
-    { id: "certifications", label: "Certifications" },
+    // { id: "certifications", label: "Certifications" },
   ];
 
   // Content Data
@@ -58,40 +58,40 @@ const Experience = () => {
         </div>
       </motion.div>
     ),
-    certifications: (
-      <motion.div
-        key="certifications"
-        initial={{ opacity: 0, rotateX: 90 }}
-        animate={{ opacity: 1, rotateX: 0 }}
-        exit={{ opacity: 0, rotateX: 90 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div>
-            <Certifications/>
-        </div>
-      </motion.div>
-    ),
+    // certifications: (
+    //   <motion.div
+    //     key="certifications"
+    //     initial={{ opacity: 0, rotateX: 90 }}
+    //     animate={{ opacity: 1, rotateX: 0 }}
+    //     exit={{ opacity: 0, rotateX: 90 }}
+    //     transition={{ duration: 0.5 }}
+    //   >
+    //     <div>
+    //         <Certifications/>
+    //     </div>
+    //   </motion.div>
+    // ),
   };
 
   return (
-    <div className="p-6">
+    <div className="py-24 px-6">
      
 
       {/* Tabs */}
-      <div className="relative flex gap-4 border-b-2 mt-6">
+      <div className="relative justify-center items-center flex gap-4 border-b-2 mt-6">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className="relative px-4 py-2 text-lg font-semibold transition-all duration-300 
-              text-gray-600 hover:text-blue-500 focus:outline-none"
+              dark:text-gray-600 hover:text-primary focus:outline-none"
           >
             {tab.label}
             {/* Active Tab Indicator */}
             {activeTab === tab.id && (
               <motion.div
                 layoutId="underline"
-                className="absolute left-0 right-0 -bottom-2 h-1 bg-blue-500 rounded-full"
+                className="absolute left-0 right-0 -bottom-1 h-1 bg-primary rounded-full"
               />
             )}
           </button>

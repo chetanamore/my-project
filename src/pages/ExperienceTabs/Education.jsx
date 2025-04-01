@@ -49,7 +49,7 @@ const Education = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="p-8 bg-gray-900 min-h-screen flex flex-col items-center">
+    <div className="p-8 dark:bg-gray-900 min-h-screen flex flex-col items-center">
       <h2 className="text-3xl font-bold text-white mb-6">Education</h2>
       <div className="relative w-full max-w-4xl">
         {/* Vertical Timeline */}

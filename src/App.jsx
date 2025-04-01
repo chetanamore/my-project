@@ -8,6 +8,8 @@ import ThemeProvider from "./context/ThemeProvider"; // Ensure correct import
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Use BrowserRouter
 import Footer from "./components/Footer";
 import Experience from "./pages/Experience";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +21,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/experience" element={<Experience />} />
+          <Route path="/project" element={<Projects/>}/>
+          <Route path="/contact" element={<Contact/>}/>
 
           {/* <Route path="/about" element={<Hero />} />
           <Route path="/projects" element={<Hero />} />

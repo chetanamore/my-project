@@ -2,6 +2,7 @@ import { img } from "framer-motion/client";
 import React, { useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef } from "react";
+// import "../pages/hero.css"
 
 import front from "../assets/front-end.jpg";
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -57,10 +58,10 @@ const WhatIDo = () => {
       <div className="flex flex-col gap-10 justify-between">
         <div className="flex flex-col gap-5 justify-between items-center">
           <div className="flex flex-col gap-1 justify-between items-center">
-            <h1 className="text-5xl">My Full Stack Services!</h1>
+            <h1 className="text-2xl sm:text-5xl">My Full Stack Services!</h1>
             <div className="w-[220px] h-[2px] text-black bg-black"></div>
           </div>
-          <p className="w-1/2 text-center">
+          <p className="p-2 sm:w-1/2 text-center">
             Building a product that is highly visual and interactive and the one
             that attract the attention of your end-user requires you to hire a
             Full-stack Developer with a substantial front-end expertise and a
@@ -69,15 +70,15 @@ const WhatIDo = () => {
             services that I provide as a Full Stack Web & Mobile Apps Developer.
           </p>
         </div>
-        <div className="flex flex-row gap-5 justify-center items-center">
+        <div className="flex flex-wrap gap-5 justify-center items-center">
           {information.map((info, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.05, rotate: 1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="bg-white shadow-lg rounded-2xl p-6 text-center w-80 
-               transition-all duration-300 ease-in-out 
-               hover:shadow-2xl hover:shadow-blue-500/50 cursor-pointer flex flex-col gap-5"
+              className="dark:bg-white light:bg-black shadow-lg rounded-2xl p-6 text-center w-80 
+               transition-all duration-300 ease-in-out border border-gray-500
+               hover:shadow-lg hover:shadow-gray-600 cursor-pointer flex flex-col gap-5"
             >
               <div>
                 <h2 className="text-xl font-semibold mt-4">{info.title}</h2>
@@ -192,6 +193,7 @@ const WhatIDo = () => {
                     )}
                   </div>
                 </motion.div>
+                <h1 className="hello">hello</h1>
               </motion.div>
             )}
           </AnimatePresence>

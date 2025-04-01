@@ -2,7 +2,7 @@
 button {
     position: relative;
     padding: 15px 45px;
-    background: #fec195;
+    /* background: #fec195; */
     font-size: 17px;
     font-weight: 500;
     color: #181818;
@@ -10,6 +10,7 @@ button {
     border: 1px solid #fec195;
     border-radius: 8px;
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+    
   }
   
   button:hover {
@@ -48,6 +49,10 @@ button {
     transform: rotate(10deg);
     transition: all 0.5s ease-in-out;
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+  }
+
+  .hello{
+    background: #FF5029;
   }
   
   button:hover .icon-1 {
