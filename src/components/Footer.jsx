@@ -37,7 +37,7 @@ const Footer = ({ theme }) => {
         transition={{ duration: 0.8, delay: 0.3 }}
       >
         <motion.a
-          href="https://www.linkedin.com/in/chetana-more"
+          href="https://www.linkedin.com/in/chetana-more-7a8938278/"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.2, color: "#0077B5" }}
@@ -47,7 +47,7 @@ const Footer = ({ theme }) => {
         </motion.a>
 
         <motion.a
-          href="https://github.com/chetana-more"
+          href="https://github.com/chetanamore"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.2, color: "#333" }}
@@ -57,7 +57,7 @@ const Footer = ({ theme }) => {
         </motion.a>
 
         <motion.a
-          href="mailto:your.email@example.com"
+          href="mailto:chetnamore791@gmail.com"
           whileHover={{ scale: 1.2, color: "#D44638" }}
           className="text-2xl transition-transform"
         >

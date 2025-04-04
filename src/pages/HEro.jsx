@@ -10,6 +10,8 @@ import { motion } from "framer-motion";
 import Projects from "./Projects";
 import { useTheme } from "../context/ThemeProvider";
 import Certifications from "./ExperienceTabs/Certificates";
+import { Link } from "react-router-dom";
+
 
 const HEro = () => {
   const containerRef = useRef(null);
@@ -43,18 +45,19 @@ const HEro = () => {
               backend development.
             </h1>
           </div>
+
           <div className="flex flex-col justify-center items-center">
-            <a
-              className="btn"
-              target="_blank"
-              href="https://drive.google.com/file/d/1rzk4cknVtGRGaj0qc-dMgTUWuFseKb5S/view"
-              download="Chetana_Resume.pdf"
-            >
-              <button>Lets Talk</button>
-            </a>
+            <Link to="/contact">
+              <button className="btn">Let's Talk</button>
+            </Link>
           </div>
           <div className="sm:w-[100%] sm:h-[50%] flex flex-col items-center justify-center">
-            <img src={sejal} alt="" srcset="" className="w-[304px] h-[304px] " />
+            <img
+              src={sejal}
+              alt=""
+              srcset=""
+              className="w-[304px] h-[304px] "
+            />
           </div>
         </div>
       </div>
@@ -251,7 +254,7 @@ const HEro = () => {
             <div>
               <div className="flex justify-center items-center gap-5">
                 <button className="flex flex-row gap-4 items-center justify-center text-lg">
-                  Browse my work 
+                  Browse my work
                 </button>
                 <FaArrowRightLong />
               </div>
@@ -265,7 +268,7 @@ const HEro = () => {
       </div> */}
 
       <div>
-        <Certifications/>
+        <Certifications />
       </div>
 
       <div>

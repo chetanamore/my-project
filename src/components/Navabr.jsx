@@ -72,6 +72,9 @@ import { Link } from "react-router-dom";
 // import { Sun, Moon } from "lucide-react";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { GoMoon } from "react-icons/go";
+import { GrDocumentPdf } from "react-icons/gr";
+import logo from "../assets/logo.jpg"; // Import your logo image
+import { RiMenu3Line } from "react-icons/ri";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -147,31 +150,38 @@ const Navbar = () => {
     //   </motion.div>
     // </motion.nav>
     <motion.nav
-      className="fixed w-full sm:w-[80%] left-5 sm:left-40 top-5 flex justify-between items-center py-3 px-5 sm:px-20 
-      bg-white dark:bg-gray-900 shadow-md z-50 border rounded-full"
+      className="fixed w-[320px] sm:w-[80%] left-5 sm:left-40 top-2 sm:top-5 flex justify-between items-center py-3 px-5 sm:px-20 
+      bg-white  shadow-md z-50 sm:border rounded-full"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100 }}
     >
       {/* Logo */}
       <motion.div
-        className="text-2xl font-bold text-gray-900 dark:text-white"
+        className="text-2xl font-bold text-white w-[40px] h-[40px] sm:w-[60px] sm:h-[60px] rounded-full"
         whileHover={{ scale: 1.1 }}
       >
-        Chetana.dev
+        <Link to='/'>
+          <img
+            src={logo}
+            alt=""
+            srcset=""
+            className="aspect-square object-cover rounded-full"
+          />
+        </Link>
       </motion.div>
 
       {/* Desktop Nav Links */}
       <ul className="hidden md:flex gap-8 text-lg">
         {[
-          { name: "Home", path: "/" },
+          // { name: "Home", path: "/" },
           { name: "Projects", path: "/project" },
           { name: "Experience", path: "/experience" },
-          { name: "Contact", path: "/contact" },
+          // { name: "Contact", path: "/contact" },
         ].map((item, index) => (
           <motion.li
             key={index}
-            className="cursor-pointer text-gray-800 hover:text-blue-500 dark:hover:text-yellow-400 transition-colors duration-300"
+            className="cursor-pointer text-gray-800 hover:text-primary dark:hover:text-yellow-400 transition-colors duration-300"
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 200 }}
           >
@@ -179,26 +189,63 @@ const Navbar = () => {
           </motion.li>
         ))}
       </ul>
+      <div className="flex items-center gap-5">
+        {/* <div className="flex flex-col justify-center items-center border rounded-full">
+          <a
+            className="flex flex-col gap-1 items-center sm:text-black"
+            target="_blank"
+            href="https://drive.google.com/file/d/1rzk4cknVtGRGaj0qc-dMgTUWuFseKb5S/view"
+            download="Chetana_Resume.pdf"
+          >
+            <GrDocumentPdf size={20} />
+            <button>Resume</button>
+          </a>
+        </div> */}
+        <div className="flex flex-col justify-center items-center border p-3 rounded-full relative group">
+          <a
+            className="flex flex-col gap-1 items-center text-black"
+            target="_blank"
+            href="https://drive.google.com/file/d/1rzk4cknVtGRGaj0qc-dMgTUWuFseKb5S/view"
+            download="Chetana_Resume.pdf"
+          >
+            <GrDocumentPdf
+              size={20}
+              className="group-hover:text-red-500 transition-all duration-300"
+            />
 
-      {/* Theme Toggle Button */}
-      <button
-        onClick={toggleTheme}
-        className="p-2 rounded-full bg-gray-200 dark:bg-gray-800"
-      >
-        {theme === "light" ? (
-          <GoMoon size={24} />
-        ) : (
-          <MdOutlineWbSunny size={24} />
-        )}
-      </button>
+            {/* Animated Resume Text */}
+            <motion.span
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 5 }}
+              transition={{ duration: 0.3 }}
+              className="text-sm text-primary hidden group-hover:block absolute top-8"
+            >
+              Resume
+            </motion.span>
+          </a>
+        </div>
+
+        {/* Theme Toggle Button */}
+        <button
+          onClick={toggleTheme}
+          className="p-3 rounded-full border dark:bg-gray-800"
+        >
+          {theme === "light" ? (
+            <GoMoon size={20} />
+          ) : (
+            <MdOutlineWbSunny className="text-black" size={20} />
+          )}
+        </button>
+      </div>
 
       {/* Mobile Menu Button */}
       <motion.div
-        className="md:hidden cursor-pointer text-gray-700 dark:text-gray-300"
+        className="md:hidden cursor-pointer text-gray-700 "
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
       >
-        ☰
+        <RiMenu3Line className="text-black" size={20} />
       </motion.div>
 
       {/* Mobile Menu */}
@@ -211,10 +258,10 @@ const Navbar = () => {
           className="absolute top-16 right-5 bg-white dark:bg-gray-900 shadow-lg rounded-lg p-5 w-40 flex flex-col gap-3 md:hidden"
         >
           {[
-            { name: "Home", path: "/" },
+            // { name: "Home", path: "/" },
             { name: "Projects", path: "/project" },
             { name: "Experience", path: "/experience" },
-            { name: "Contact", path: "/contact" },
+            // { name: "Contact", path: "/contact" },
           ].map((item, index) => (
             <Link
               key={index}

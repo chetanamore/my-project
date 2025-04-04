@@ -24,7 +24,7 @@ const Skills = () => {
   return (
     <div className="p-8 dark:bg-gray-900 min-h-screen flex flex-col items-center">
       <h2 className="text-3xl font-bold text-white mb-6">My Skills</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {skills.map((skill, index) => (
           <motion.div
             key={index}
