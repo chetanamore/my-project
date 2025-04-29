@@ -159,7 +159,7 @@ const Projects = () => {
                   <p className="text-gray-400 text-sm mt-2">
                     {project.description}
                   </p>
-                  <div className="flex justify-center gap-2 mt-2">
+                  <div className="flex flex-wrap justify-center gap-2 mt-2">
                     {project.techStack.map((tech, i) => (
                       <span
                         key={i}
