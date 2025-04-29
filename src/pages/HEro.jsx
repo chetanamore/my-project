@@ -1,4 +1,4 @@
-import { useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 // import VariableProximity from "./VariableProximity";
 import sejal from "../assets/avtar.png";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -6,19 +6,20 @@ import { MdDownload } from "react-icons/md";
 import chetana from "../assets/chetu.jpg";
 import WhatIDo from "./WhatIDo";
 import Experience from "./Experience";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Projects from "./Projects";
 import { useTheme } from "../context/ThemeProvider";
 import Certifications from "./ExperienceTabs/Certificates";
 import { Link } from "react-router-dom";
-
+import Skills from "./ExperienceTabs/Skills";
 
 const HEro = () => {
   const containerRef = useRef(null);
   const { theme } = useTheme();
+  const [showWorkPage, setShowWorkPage] = useState(false);
 
   return (
-    <div className="flex flex-col gap-20 py-28">
+    <div className="flex flex-col gap-20 py-28 pt-36">
       <div className="flex flex-col justify-between items-center">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-10">
@@ -32,9 +33,6 @@ const HEro = () => {
               Full Stack Developer
             </h2>
           </div>
-          {/* <div className="flex flex-row gap-5 items-center">
-            <div className="text-black bg-black w-[50px] h-[3px]"></div> 
-          </div> */}
           <div className="w-[300px] sm:w-[900px]">
             <h1 className="p-2 text-lgsm:text-xl text-center font-normal">
               I am Chetana Ravindra More, a skilled Full Stack Developer with
@@ -48,15 +46,24 @@ const HEro = () => {
 
           <div className="flex flex-col justify-center items-center">
             <Link to="/contact">
-              <button className="btn">Let's Talk</button>
+              <motion.button
+                initial={{ scale: 1 }} // Start at normal size
+                whileHover={{ scale: 1.1 }} // Scale up on hover
+                transition={{ duration: 0.3 }}
+                className="btn"
+              >
+                Let's Talk
+              </motion.button>
             </Link>
           </div>
           <div className="sm:w-[100%] sm:h-[50%] flex flex-col items-center justify-center">
-            <img
+            <motion.img
               src={sejal}
-              alt=""
-              srcset=""
-              className="w-[304px] h-[304px] "
+              alt="Sejal"
+              initial={{ scale: 1 }} // Start at normal size
+              whileHover={{ scale: 1.1 }} // Scale up on hover
+              transition={{ duration: 0.3 }} // Quick animation duration
+              className="w-[304px] h-[304px] object-cover"
             />
           </div>
         </div>
@@ -163,104 +170,105 @@ const HEro = () => {
       </motion.div> */}
 
       <div className="flex flex-col gap-20 justify-between">
-        {/* <div className="flex flex-col gap-1 justify-between items-center">
-          <h1 className="text-5xl">Who am I?</h1>
-          <div className="w-[220px] h-[2px] text-black bg-black"></div>
-        </div> */}
-        <div className="flex flex-col sm:flex-row items-center gap-20 text-start">
-          <div className="flex flex-col justify-center items-center gap-5">
-            <img
-              src={chetana}
-              alt=""
-              srcset=""
-              className="w-[50%] rounded-lg"
-            />
-          </div>
-
-          <div className="w-full flex flex-col justify-center text-start items-start gap-10 p-5">
-            <div className="relative flex flex-col gap-5">
-              <div>
-                <h2 className="text-4xl font-bold">
-                  What I<span className="font-normal italic"> Bring</span> to
-                  the table
-                </h2>
-
-                {/* <h1 className="text-3xl font-bold mt-2 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent transition-transform duration-500 ease-in-out hover:skew-x-6">
-                  Chetana More Details
-                </h1> */}
-
-                <p className="mt-4 transition-all duration-500 ease-in-out hover:tracking-wide hover:text-blue-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Quidem voluptatem tempore possimus, saepe magni dicta
-                  explicabo aliquam officiis odio facilis quae fugit inventore?
-                  Nesciunt amet necessitatibus dignissimos praesentium
-                  temporibus et!
-                </p>
+        <AnimatePresence mode="wait">
+          {!showWorkPage ? (
+            <motion.div
+              key="main"
+              initial={{ opacity: 0, x: -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="flex flex-col sm:flex-row items-center gap-20 text-start"
+            >
+              <div className="flex flex-col justify-center items-center gap-5">
+                <img
+                  src={chetana} // Replace with actual image
+                  alt=""
+                  className="w-[50%] rounded-lg"
+                />
               </div>
-            </div>
-            <div>
-              <div className="flex flex-col gap-5">
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
-                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                    <div className="relative z-10 light:text-blackk group-hover:text-white transition-colors duration-500">
-                      <h1 className="text-lg font-semibold">
-                        Passion for Learining
-                      </h1>
-                      <p className="text-base">
-                        Building, innovating, and learning every day.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
-                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                    <div className="relative z-10 light:text-black group-hover:text-white transition-colors duration-500">
-                      <h1 className="text-lg font-semibold">
-                        Collabration & Teamwork
-                      </h1>
-                      <p className="text-base">
-                        Believing in teamwork to turn ideas into reality.
-                      </p>
-                    </div>
-                  </div>
+
+              <div className="w-full flex flex-col justify-center text-start items-start gap-10 p-5">
+                <div className="relative flex flex-col gap-5">
+                  <h2 className="text-4xl font-bold">
+                    What I<span className="font-normal italic"> Bring</span> to
+                    the table
+                  </h2>
+                  <p className="mt-4 hover:tracking-wide hover:text-blue-500">
+                    I am passionate about building and innovating in the tech
+                    space.
+                  </p>
                 </div>
 
+                {/* Skills Section */}
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
-                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                    <div className="relative z-10 light:text-black group-hover:text-white transition-colors duration-500">
-                      <h1 className="text-lg font-semibold">
-                        Problem Solving Mindset
-                      </h1>
-                      <p className="text-base">
-                        Every problem is a puzzle waiting to be solved.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="relative p-4 border-l-4 border-primary overflow-hidden group">
-                    <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
-                    <div className="relative z-10 light:text-black group-hover:text-white transition-colors duration-500">
-                      <h1 className="text-lg font-semibold">
-                        Hands on Expereince
-                      </h1>
-                      <p className="text-base">
-                        Strong hands-on expertise in full-stack development
-                      </p>
-                    </div>
-                  </div>
+                  {[
+                    {
+                      title: "Passion for Learning",
+                      desc: "Building, innovating, and learning every day.",
+                    },
+                    {
+                      title: "Collaboration & Teamwork",
+                      desc: "Believing in teamwork to turn ideas into reality.",
+                    },
+                    {
+                      title: "Problem-Solving Mindset",
+                      desc: "Every problem is a puzzle waiting to be solved.",
+                    },
+                    {
+                      title: "Hands-on Experience",
+                      desc: "Strong hands-on expertise in full-stack development.",
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      className="relative p-4 border-l-4 border-primary overflow-hidden group"
+                      initial={{ opacity: 0, y: 50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2, duration: 0.5 }}
+                    >
+                      <div className="absolute inset-0 bg-primary scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100"></div>
+                      <div className="relative z-10 group-hover:text-white transition-colors duration-500">
+                        <h1 className="text-lg font-semibold">{item.title}</h1>
+                        <p className="text-base">{item.desc}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
+
+                {/* Button to Toggle Page */}
+                <motion.div
+                  className="flex justify-center items-center gap-5 cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowWorkPage(true)}
+                >
+                  <span className="text-lg">Browse My Work</span>
+                  <FaArrowRightLong />
+                </motion.div>
               </div>
-            </div>
-            <div>
-              <div className="flex justify-center items-center gap-5">
-                <button className="flex flex-row gap-4 items-center justify-center text-lg">
-                  Browse my work
-                </button>
-                <FaArrowRightLong />
-              </div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="work"
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="flex flex-col items-center gap-10"
+            >
+              <WhatIDo />
+              <motion.button
+                className="text-lg text-blue-500 underline"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setShowWorkPage(false)}
+              >
+                Go Back
+              </motion.button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* <div>
@@ -268,11 +276,7 @@ const HEro = () => {
       </div> */}
 
       <div>
-        <Certifications />
-      </div>
-
-      <div>
-        <WhatIDo />
+        <Skills />
       </div>
 
       <div>

@@ -5,6 +5,7 @@ import { useRef } from "react";
 // import "../pages/hero.css"
 
 import front from "../assets/front-end.jpg";
+import { FaGithub, FaLinkedin, FaPause, FaPlay } from "react-icons/fa6";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation, Pagination } from "swiper/modules";
 // import "swiper/css";
@@ -14,14 +15,18 @@ import front from "../assets/front-end.jpg";
 
 const information = [
   {
+    id: 1,
     img: front,
     title: "Full-Stack Web Development",
     description:
       "I specialize in building dynamic web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
     github: "https://github.com/yourgithub",
     linkedin: "https://linkedin.com/in/yourlinkedin",
+    videoPreview: "https://example.com/videos/task-manager-preview.mp4", // Sample video URL
+    previewThumbnail: "/api/placeholder/400/320"
   },
   {
+    id: 2,
     img: "your-image.jpg",
     title: "Responsive Web Design",
     description:
@@ -30,6 +35,7 @@ const information = [
     linkedin: "https://linkedin.com/in/yourlinkedin",
   },
   {
+    id: 3,
     img: "your-image.jpg",
     title: "Backend Development",
     description:
@@ -38,6 +44,7 @@ const information = [
     linkedin: "https://linkedin.com/in/yourlinkedin",
   },
   {
+    id: 4,
     img: "your-image.jpg",
     title: "Hosting & Deployment",
     description:
@@ -49,9 +56,22 @@ const information = [
 
 const WhatIDo = () => {
   const [selectedCard, setSelectedCard] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const ref = useRef(null);
   const isInView = useInView(ref, { triggerOnce: true, margin: "-50px" });
+
+  const toggleVideoPlayback = () => {
+    const videoElement = document.getElementById("project-preview-video");
+    if (videoElement) {
+      if (isPlaying) {
+        videoElement.pause();
+      } else {
+        videoElement.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <div>
@@ -126,74 +146,204 @@ const WhatIDo = () => {
           {/* Modal for showing selected card details */}
           <AnimatePresence>
             {selectedCard && (
+              // <motion.div
+              //   className="fixed left-8 inset-0 bg-black bg-opacity-50 z-[99999] flex justify-center items-center"
+              //   initial={{ opacity: 0 }}
+              //   animate={{ opacity: 1 }}
+              //   exit={{ opacity: 0 }}
+              //   onClick={(e) => {
+              //     e.preventDefault();
+              //     setSelectedCard(null);
+              //   }}
+              //   style={{ position: "fixed" }}
+              // >
+              //   <motion.div
+              //     className="bg-white p-6 rounded-lg shadow-xl w-96 text-center relative"
+              //     initial={{ scale: 0.8 }}
+              //     animate={{ scale: 1 }}
+              //     exit={{ scale: 0.8 }}
+              //     onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+              //   >
+              //     <button
+              //       className="absolute top-2 right-4 text-gray-600 text-2xl"
+              //       onClick={(e) => {
+              //         e.preventDefault();
+              //         setSelectedCard(null);
+              //       }}
+              //     >
+              //       &times;
+              //     </button>
+              //     {selectedCard.img && (
+              //       <img
+              //         src={selectedCard.img}
+              //         alt={selectedCard.title}
+              //         className="w-24 h-24 mx-auto rounded-full"
+              //       />
+              //     )}
+
+              //     <h2 className="text-xl font-semibold mt-4">
+              //       {selectedCard.title}
+              //     </h2>
+
+              //     <p className="text-gray-500 mt-2">
+              //       {selectedCard.description}
+              //     </p>
+              //     <div className="mt-4">
+              //       {selectedCard.github && (
+              //         <a
+              //           href={selectedCard.github}
+              //           className="text-blue-500 hover:underline"
+              //         >
+              //           GitHub
+              //         </a>
+              //       )}
+              //       {selectedCard.github && selectedCard.linkedin && " | "}
+              //       {selectedCard.linkedin && (
+              //         <a
+              //           href={selectedCard.linkedin}
+              //           className="text-blue-500 hover:underline ml-2"
+              //         >
+              //           LinkedIn
+              //         </a>
+              //       )}
+              //     </div>
+              //   </motion.div>
+              //   <h1 className="hello">hello</h1>
+              // </motion.div>
               <motion.div
-                className="fixed inset-0 bg-black bg-opacity-50 z-[99999] flex justify-center items-center"
+                className="fixed px-5 left-0 top-0 right-0 bottom-0 bg-black bg-opacity-50 z-50 flex justify-center items-center "
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSelectedCard(null);
-                }}
-                style={{ position: "fixed" }}
+                onClick={() => setSelectedCard(null)}
               >
                 <motion.div
-                  className="bg-white p-6 rounded-lg shadow-xl w-96 text-center relative"
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  exit={{ scale: 0.8 }}
-                  onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+                  className="bg-white p-8 rounded-lg shadow-xl w-full max-w-md text-center relative overflow-y-auto h-[500px]"
+                  initial={{ scale: 0.8, y: 20 }}
+                  animate={{ scale: 1, y: 0 }}
+                  exit={{ scale: 0.8, y: 20 }}
+                  onClick={(e) => e.stopPropagation()}
                 >
+                  {/* Close Button */}
                   <button
-                    className="absolute top-2 right-4 text-gray-600 text-2xl"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setSelectedCard(null);
-                    }}
+                    className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 p-1 rounded-full bg-gray-100 hover:bg-gray-200 transition-all"
+                    onClick={() => setSelectedCard(null)}
                   >
-                    &times;
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      ></path>
+                    </svg>
                   </button>
-                  {selectedCard.img && (
+
+                  {/* Project Image */}
+                  <div className="mb-6">
                     <img
                       src={selectedCard.img}
                       alt={selectedCard.title}
-                      className="w-24 h-24 mx-auto rounded-full"
+                      className="w-32 h-32 mx-auto rounded-full border-4 border-blue-50 shadow-md object-cover"
                     />
-                  )}
-
-                  <div className="relative p-4 border-l-4 border-blue-500 overflow-hidden group">
-                    <div className="absolute inset-0 bg-blue-500 scale-y-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-y-100"></div>
-                    <div className="relative z-10 text-black group-hover:text-white transition-colors duration-500"></div>
                   </div>
 
-                  <h2 className="text-xl font-semibold mt-4">
+                  {/* Project Details */}
+                  <h2 className="text-2xl font-bold text-gray-800 mb-2">
                     {selectedCard.title}
                   </h2>
 
-                  <p className="text-gray-500 mt-2">
+                  <p className="text-gray-600 mb-6 px-4">
                     {selectedCard.description}
                   </p>
-                  <div className="mt-4">
+
+                  {/* Preview Image */}
+                  <div className="mb-6 bg-gray-100 p-3 rounded-lg relative">
+                    <div className="relative">
+                      {/* Video element */}
+                      <video
+                        id="project-preview-video"
+                        className="w-full h-auto rounded-md shadow-sm"
+                        poster={selectedCard.previewThumbnail}
+                        src={selectedCard.videoPreview}
+                        preload="metadata"
+                        onEnded={() => setIsPlaying(false)}
+                      />
+
+                      {/* Play/Pause overlay button */}
+                      <button
+                        onClick={toggleVideoPlayback}
+                        className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-40 transition-opacity"
+                      >
+                        <div className="bg-white p-3 rounded-full shadow-lg">
+                          {isPlaying ? (
+                            <FaPause className="w-6 h-6 text-gray-800" />
+                          ) : (
+                            <FaPlay className="w-6 h-6 text-gray-800" />
+                          )}
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Action Links */}
+                  <div className="flex justify-center space-x-6 mt-6">
                     {selectedCard.github && (
                       <a
                         href={selectedCard.github}
-                        className="text-blue-500 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-gray-700 hover:text-blue-600 transition-colors group"
                       >
-                        GitHub
+                        <FaGithub className="w-5 h-5 mr-2 group-hover:text-blue-600" />
+                        <span>GitHub</span>
                       </a>
                     )}
-                    {selectedCard.github && selectedCard.linkedin && " | "}
+
                     {selectedCard.linkedin && (
                       <a
                         href={selectedCard.linkedin}
-                        className="text-blue-500 hover:underline ml-2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-gray-700 hover:text-blue-600 transition-colors group"
                       >
-                        LinkedIn
+                        <FaLinkedin className="w-5 h-5 mr-2 group-hover:text-blue-600" />
+                        <span>LinkedIn</span>
+                      </a>
+                    )}
+
+                    {selectedCard.demoLink && (
+                      <a
+                        href={selectedCard.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center text-gray-700 hover:text-blue-600 transition-colors group"
+                      >
+                        <ExternalLink className="w-5 h-5 mr-2 group-hover:text-blue-600" />
+                        <span>Live Demo</span>
                       </a>
                     )}
                   </div>
+
+                  {/* Tags */}
+                  <div className="mt-6 flex flex-wrap justify-center gap-2">
+                    {["React", "Tailwind", "Framer Motion", "JavaScript"].map(
+                      (tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 bg-blue-50 text-blue-600 text-xs rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      )
+                    )}
+                  </div>
                 </motion.div>
-                <h1 className="hello">hello</h1>
               </motion.div>
             )}
           </AnimatePresence>

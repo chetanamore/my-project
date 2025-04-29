@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import onilene from "../assets/onilene.png";
 import chat from "../assets/chat.png";
 import travel from "../assets/tarvel.png";
+import { MdOutlineArrowOutward } from "react-icons/md";
 
 const projectsData = [
   {
@@ -115,7 +116,7 @@ const Projects = () => {
     //     ))}
     //   </div>
     // </div>
-    <div className="py-24 dark:bg-gray-900 min-h-screen flex flex-col items-center">
+    <div className="py-24 px-5 dark:bg-gray-900 min-h-screen flex flex-col items-center">
       <h2 className="text-4xl font-bold dark:text-white mb-8 text-center tracking-wide">
         My Projects
       </h2>
@@ -133,7 +134,7 @@ const Projects = () => {
           return (
             <motion.div
               key={index}
-              className={`relative w-full rounded-[50px] shadow-lg overflow-hidden flex flex-col justify-between p-10 border-2 border-transparent hover:border-blue-500 transition-all duration-500 ${
+              className={`relative w-full rounded-br-[100px] rounded-tl-[100px] shadow-lg overflow-hidden flex flex-col justify-between p-10 border-2 border-transparent hover:border-blue-500 transition-all duration-500 ${
                 gradientClasses[index % gradientClasses.length]
               }`}
               whileHover={{ scale: 1.05 }}
@@ -173,18 +174,18 @@ const Projects = () => {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline"
+                      className="text-primary hover:underline flex flex-row gap-1 items-center"
                     >
-                      Live Demo 🌐
+                      Live Demo <MdOutlineArrowOutward className="text-white"/>
                     </a>
                     <span>|</span>
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-primary hover:underline"
+                      className="text-primary hover:underline flex flex-row gap-1 items-center"
                     >
-                      GitHub 🔗
+                      GitHub <MdOutlineArrowOutward className="text-white"/>
                     </a>
                   </div>
                 </div>

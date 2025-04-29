@@ -6,30 +6,31 @@ import Education from "./ExperienceTabs/Education";
 import Certifications from "./ExperienceTabs/Certificates";
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState("skills");
+  const [activeTab, setActiveTab] = useState("certifications");
 
   const tabs = [
-    { id: "skills", label: "Skills" },
+    // { id: "skills", label: "Skills" },
+    { id: "certifications", label: "Certifications" },
     { id: "education", label: "Education" },
     { id: "internship", label: "Internship Experience" },
-    // { id: "certifications", label: "Certifications" },
+    
   ];
 
   // Content Data
   const tabContent = {
-    skills: (
-      <motion.div
-        key="skills"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: 50 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div>
-            <Skills/>
-        </div>
-      </motion.div>
-    ),
+    // skills: (
+    //   <motion.div
+    //     key="skills"
+    //     initial={{ opacity: 0, x: -50 }}
+    //     animate={{ opacity: 1, x: 0 }}
+    //     exit={{ opacity: 0, x: 50 }}
+    //     transition={{ duration: 0.5 }}
+    //   >
+    //     <div>
+    //         <Skills/>
+    //     </div>
+    //   </motion.div>
+    // ),
     education: (
       <motion.div
         key="education"
@@ -58,19 +59,19 @@ const Experience = () => {
         </div>
       </motion.div>
     ),
-    // certifications: (
-    //   <motion.div
-    //     key="certifications"
-    //     initial={{ opacity: 0, rotateX: 90 }}
-    //     animate={{ opacity: 1, rotateX: 0 }}
-    //     exit={{ opacity: 0, rotateX: 90 }}
-    //     transition={{ duration: 0.5 }}
-    //   >
-    //     <div>
-    //         <Certifications/>
-    //     </div>
-    //   </motion.div>
-    // ),
+    certifications: (
+      <motion.div
+        key="certifications"
+        initial={{ opacity: 0, rotateX: 90 }}
+        animate={{ opacity: 1, rotateX: 0 }}
+        exit={{ opacity: 0, rotateX: 90 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div>
+            <Certifications/>
+        </div>
+      </motion.div>
+    ),
   };
 
   return (
@@ -78,7 +79,7 @@ const Experience = () => {
      
 
       {/* Tabs */}
-      <div className="relative justify-center items-center flex gap-4 border-b-2 mt-6">
+      <div className="relative justify-center items-center grid grid-cols-2 sm:flex gap-4 sm:border-b-2 mt-6">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -91,7 +92,7 @@ const Experience = () => {
             {activeTab === tab.id && (
               <motion.div
                 layoutId="underline"
-                className="absolute left-0 right-0 -bottom-1 h-1 bg-primary rounded-full"
+                className="hidden sm:block absolute left-0 right-0 -bottom-1 h-1 bg-primary rounded-full"
               />
             )}
           </button>

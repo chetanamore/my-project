@@ -62,7 +62,7 @@ const certificationsData = [
 
 const Certifications = () => {
   return (
-    <div className="p-8 dark:bg-gray-900 min-h-screen flex flex-col items-center">
+    <div className="p-8 sm:p-5 dark:bg-gray-900 min-h-screen flex flex-col items-center">
       <h2 className="text-3xl font-bold text-white mb-6">Certifications</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {certificationsData.map((cert, index) => (

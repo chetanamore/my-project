@@ -136,7 +136,7 @@ const Contact = () => {
     // </div>
 
     <div
-      className="flex flex-col items-center sm:items-end pr-4 pt-32 sm:pt-0 sm:pr-28 py-16 sm:py-24 text-white bg-cover bg-center dark:bg-gray-900"
+      className="flex flex-col items-center sm:items-end pr-4 pt-36 sm:pt-36 sm:pr-28 py-16 sm:py-24 text-white bg-cover bg-center dark:bg-gray-900"
       style={{
         backgroundImage: `url(${contact})`,
         backgroundSize: "cover",
