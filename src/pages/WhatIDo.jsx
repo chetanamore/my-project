@@ -4,7 +4,10 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useRef } from "react";
 // import "../pages/hero.css"
 
-import front from "../assets/front-end.jpg";
+import frontend from "../assets/front-end.jpg";
+import responsive from "../assets/responsive.jpg";
+import backend from "../assets/backend.jpeg";
+import deploy from "../assets/deploy.jpeg";
 import { FaGithub, FaLinkedin, FaPause, FaPlay } from "react-icons/fa6";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation, Pagination } from "swiper/modules";
@@ -16,18 +19,18 @@ import { FaGithub, FaLinkedin, FaPause, FaPlay } from "react-icons/fa6";
 const information = [
   {
     id: 1,
-    img: front,
+    img: frontend,
     title: "Full-Stack Web Development",
     description:
       "I specialize in building dynamic web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).",
     github: "https://github.com/yourgithub",
     linkedin: "https://linkedin.com/in/yourlinkedin",
-    videoPreview: "https://example.com/videos/task-manager-preview.mp4", // Sample video URL
+    videoPreview: "public/videos/v.mp4", // Sample video URL
     previewThumbnail: "/api/placeholder/400/320"
   },
   {
     id: 2,
-    img: "your-image.jpg",
+    img: responsive,
     title: "Responsive Web Design",
     description:
       "I create pixel-perfect, mobile-friendly designs using HTML, CSS, Tailwind CSS, and Bootstrap to ensure seamless user experiences.",
@@ -36,7 +39,7 @@ const information = [
   },
   {
     id: 3,
-    img: "your-image.jpg",
+    img: backend,
     title: "Backend Development",
     description:
       "I develop secure and scalable backend APIs using Node.js, Express.js, and MongoDB, integrating authentication and real-time features.",
@@ -45,7 +48,7 @@ const information = [
   },
   {
     id: 4,
-    img: "your-image.jpg",
+    img: deploy,
     title: "Hosting & Deployment",
     description:
       "I deploy websites and applications using platforms like Vercel, Netlify, and AWS, ensuring high performance and security.",
